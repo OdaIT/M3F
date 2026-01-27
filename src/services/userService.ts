@@ -1,12 +1,9 @@
-import { User } from "../models/index.js";
+import { User } from "../models/userClass";
 
 export const users: User[] = [];
 
 export function createUserService(name: string, email: string): string | null {
-  function validateEmail(email_: string) {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email_);
-  }
+  validateEmail(email);
 
   if (!validateEmail(email)) return "Email invalid";
   if (!name || !email) return "Name and email are required";
@@ -15,6 +12,10 @@ export function createUserService(name: string, email: string): string | null {
   users.push({ name, email, status: "active", tasks: [] });
   return null;
 }
+
+export function validateEmail(email_: string) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email_);
 
 export function toggleUserStatus(user: User) {
   user.status = user.status === "active" ? "inactive" : "active";

@@ -1,8 +1,6 @@
 import { Task } from "./task.js";
 
-export interface User {
-  name: string;
-  email: string;
+export interface Usuario {
   status: "active" | "inactive";
   tasks: Task[];
 }
