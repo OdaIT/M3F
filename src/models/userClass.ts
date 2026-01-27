@@ -1,5 +1,5 @@
 import { BaseEntity } from "./BaseIntety";
-import { Usuario } from "./user";
+import { Usuario, UserRole } from "./user";
 import { Task } from "./task";
 
 export class User extends BaseEntity implements Usuario{
@@ -10,12 +10,14 @@ export class User extends BaseEntity implements Usuario{
     name: string,
     email: string,
     status: "active" | "inactive",
+    role: UserRole,
     createdAt: string,
     tasks: Task[] = []
   )
   {
-    super (email, createdAt, name);
+    super (name, email, createdAt);
     this.status = status;
+    this.role = role;
     this.tasks = tasks;
   }
   get creationDate():string{
