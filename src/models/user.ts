@@ -1,6 +1,6 @@
 import { Task } from "./task.js";
 
-export interface Usuario {
+export interface UserTask {
   status: "active" | "inactive";
   role: UserRole;
   tasks: Task[];

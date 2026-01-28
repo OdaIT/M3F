@@ -1,8 +1,8 @@
 import { BaseEntity } from "./BaseIntety";
-import { Usuario, UserRole } from "./user";
+import { UserTask, UserRole } from "./user";
 import { Task } from "./task";
 
-export class User extends BaseEntity implements Usuario{
+export class User extends BaseEntity implements UserTask{
   status: "active" | "inactive";
   tasks: Task[];
 
