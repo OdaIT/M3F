@@ -1,3 +1,5 @@
+import { now } from "../utils/utilTypes.js";
+
 export class Comment {
   public readonly id: number;
   public readonly taskId: number;
@@ -22,9 +24,8 @@ export class Comment {
 export class CommentService {
   private comments: Comment[] = [];
   private nextId = 1;
-}
 
-export function addComment(taskId: number, userId: string, message: string): Comment {
+  addComment(taskId: number, userId: string, message: string): Comment {
     if (!message.trim()) {
       throw new Error("Comment message cannot be empty");
     }
@@ -40,11 +41,11 @@ export function addComment(taskId: number, userId: string, message: string): Com
     return comment;
   }
 
-  export function  getComments(taskId: number): Comment[] {
+  getComments(taskId: number): Comment[] {
     return this.comments.filter(c => c.taskId === taskId);
   }
 
-export function deleteComment(commentId: number): void {
+  deleteComment(commentId: number): void {
     this.comments = this.comments.filter(c => c.id !== commentId);
+  }
 }
-    
