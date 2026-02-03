@@ -56,10 +56,13 @@ function closeModal() {
   pendingTaskText = "";
   modalOverlay.classList.add("hidden");
 }
+
+
 const task1 = { id: 1, title: "Implementar API", completed: false };
 const user1 = User.createUser("Um", "um@um.um", "admin" as UserRole);
 const user2 = User.createUser("Dois", "dois@dois.dois", "user" as UserRole);
 const user3 = User.createUser("Tres", "tres@tres.tres", "user" as UserRole);
+
 User.getIdByEmail("um@um.um")
 SystemConfig.getInfo();
 SystemLogger.log("Application started");
@@ -67,7 +70,6 @@ SystemLogger.getLogs();
 BusinessRules.canUserBeDeactivated(1);
 
 const watcherSystem = new WatcherSystem();
-
 watcherSystem.watch(1, "um@um.um");
 watcherSystem.watch(1, "dois@dois.dois");
 console.log(watcherSystem.getWatchers(1));
